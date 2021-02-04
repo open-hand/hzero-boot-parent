@@ -9,7 +9,7 @@
         <version>1.4.0.RELEASE</version>
     </parent>
     <artifactId>hzero-boot-platform</artifactId>
-    <version>1.4.3.RELEASE</version>
+    <version>1.4.4.RELEASE</version>
     <description>Hzero平台服务组件</description>
 
     <dependencies>

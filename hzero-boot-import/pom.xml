@@ -9,7 +9,7 @@
         <version>1.4.0.RELEASE</version>
     </parent>
     <artifactId>hzero-boot-import</artifactId>
-    <version>1.4.1.RELEASE</version>
+    <version>1.4.4.RELEASE</version>
     <description>通用导入组件，结合导入服务使用</description>
 
     <dependencies>

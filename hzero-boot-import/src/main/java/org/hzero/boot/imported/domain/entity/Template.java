@@ -52,6 +52,7 @@ public class Template extends AuditDomain {
     @NotNull
     private Long tenantId;
     private String tenantName;
+    private Integer fragmentFlag;
 
     /**
      * 模板目标
@@ -172,6 +173,15 @@ public class Template extends AuditDomain {
 
     public Template setTenantName(String tenantName) {
         this.tenantName = tenantName;
+        return this;
+    }
+
+    public Integer getFragmentFlag() {
+        return fragmentFlag;
+    }
+
+    public Template setFragmentFlag(Integer fragmentFlag) {
+        this.fragmentFlag = fragmentFlag;
         return this;
     }
 

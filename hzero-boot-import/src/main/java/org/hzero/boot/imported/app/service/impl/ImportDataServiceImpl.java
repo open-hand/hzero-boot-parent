@@ -232,6 +232,7 @@ public class ImportDataServiceImpl implements ImportDataService {
         Import imported = importRepository.selectOne(new Import().setBatch(batch));
         // 组合自定义参数、校验状态
         prepare(imported, args);
+        Assert.isTrue( importDataRepository.selectCount(new ImportData().setBatch(batch).setDataStatus(DataStatus.NEW)) > 0, HimpBootConstants.ErrorCode.DATA_VALIDATE);
         // 更新状态
         importRepository.updateOptional(imported.setStatus(HimpBootConstants.ImportStatus.CHECKING), Import.FIELD_STATUS);
         // 启动数据校验线程
@@ -273,6 +274,7 @@ public class ImportDataServiceImpl implements ImportDataService {
         Import imported = importRepository.selectOne(new Import().setBatch(batch));
         // 组合自定义参数、校验状态
         prepare(imported, args);
+        Assert.isTrue( importDataRepository.selectCount(new ImportData().setBatch(batch).setDataStatus(DataStatus.NEW)) > 0, HimpBootConstants.ErrorCode.DATA_VALIDATE);
         // 更新状态
         importRepository.updateOptional(imported.setStatus(HimpBootConstants.ImportStatus.CHECKING), Import.FIELD_STATUS);
         DataValidateExecute dataValidate = new DataValidateExecute(
@@ -292,6 +294,7 @@ public class ImportDataServiceImpl implements ImportDataService {
         Import imported = importRepository.selectOne(new Import().setBatch(batch));
         // 组合自定义参数、校验状态
         prepare(imported, args);
+        Assert.isTrue( importDataRepository.selectCount(new ImportData().setBatch(batch).setDataStatus(DataStatus.VALID_SUCCESS)) > 0, HimpBootConstants.ErrorCode.DATA_IMPORT);
         // 更新状态
         importRepository.updateOptional(imported.setStatus(HimpBootConstants.ImportStatus.IMPORTING), Import.FIELD_STATUS);
         // 启动数据导入线程
@@ -317,6 +320,7 @@ public class ImportDataServiceImpl implements ImportDataService {
         Import imported = importRepository.selectOne(new Import().setBatch(batch));
         // 组合自定义参数、校验状态
         prepare(imported, args);
+        Assert.isTrue( importDataRepository.selectCount(new ImportData().setBatch(batch).setDataStatus(DataStatus.VALID_SUCCESS)) > 0, HimpBootConstants.ErrorCode.DATA_IMPORT);
         // 更新状态
         importRepository.updateOptional(imported.setStatus(HimpBootConstants.ImportStatus.IMPORTING), Import.FIELD_STATUS);
         DataImportExecute dataImport = new DataImportExecute(

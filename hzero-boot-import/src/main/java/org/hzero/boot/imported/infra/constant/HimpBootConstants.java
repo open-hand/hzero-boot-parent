@@ -239,6 +239,12 @@ public class HimpBootConstants {
          * 获取数据失败
          */
         public static final String VALUE_ERROR = "himp.error.value";
+        /**
+         * 数据与模板不匹配
+         */
+        public static final String DATA_MATCH = "himp.error.data.match";
+        public static final String DATA_VALIDATE = "himp.error.data.validate";
+        public static final String DATA_IMPORT = "himp.error.data.import";
 
 
     }

@@ -184,7 +184,11 @@ public class ExcelImportExecute implements Runnable {
             if (cell != null) {
                 switch (cell.getCellType()) {
                     case NUMERIC:
-                        return ExcelReader.readValue(cell.getNumericCellValue(), templateColumn.toColumn());
+                        if (HimpBootConstants.ColumnType.DATE.equals(templateColumn.getColumnType())) {
+                            return ExcelReader.readValue(cell.getNumericCellValue(), templateColumn.toColumn());
+                        } else {
+                            return ExcelReader.readValue(cell.getStringCellValue(), templateColumn.toColumn());
+                        }
                     case STRING:
                         return ExcelReader.readValue(cell.getStringCellValue(), templateColumn.toColumn());
                     case FORMULA:
